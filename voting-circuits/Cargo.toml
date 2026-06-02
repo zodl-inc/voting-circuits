@@ -9,12 +9,12 @@ repository = "https://github.com/valargroup/voting-circuits"
 readme = "README.md"
 
 [dependencies]
-# orchard 0.13.1 declares the MSRV and exposes the unstable governance circuit APIs.
-orchard = { version = "=0.13.1", features = ["circuit", "unstable-voting-circuits"] }
+# orchard 0.14 declares the MSRV and exposes the unstable governance circuit APIs.
+orchard = { version = "0.14", features = ["circuit", "unstable-voting-circuits"] }
 # halo2_proofs 0.3 fixes the proof-system API and batch verifier used by all circuits.
 halo2_proofs = { version = "0.3", default-features = false, features = ["batch", "floor-planner-v1-legacy-pdqsort"] }
 # halo2_gadgets 0.4 supplies ECC, Sinsemilla, Poseidon helpers, bool_check, and range checks that shape the verifying keys.
-halo2_gadgets = { version = "0.4", default-features = false }
+halo2_gadgets = { version = "0.5", default-features = false }
 # pasta_curves/ff/group are the Pallas/Vesta field and trait line used by orchard and halo2.
 pasta_curves = "0.5"
 ff = { version = "0.13", default-features = false }
@@ -45,3 +45,10 @@ bench = false
 [[bench]]
 name = "delegation"
 harness = false
+
+[patch.crates-io]
+halo2_gadgets = { package = "halo2_gadgets", git = "https://github.com/zodl-inc/halo2-security-fixes.git", rev = "d751768afe0d2105b349dd93f73fde7f2eade088" }
+halo2_proofs = { package = "halo2_proofs", git = "https://github.com/zodl-inc/halo2-security-fixes.git", rev = "d751768afe0d2105b349dd93f73fde7f2eade088" }
+poseidon = { package = "halo2_poseidon", git = "https://github.com/zodl-inc/halo2-security-fixes.git", rev = "d751768afe0d2105b349dd93f73fde7f2eade088" }
+orchard = { git = "https://github.com/zodl-inc/orchard-security-fixes.git", rev = "994dad2f7bb8c85e7c8ea336dcc2a814a94bc9fd" }
+imt-tree = { git = "https://github.com/zodl-inc/vote-nullifier-pir-security-fixes.git", rev = "f8c57997a078fe44f68a65969e34e1c3caab5851" }
