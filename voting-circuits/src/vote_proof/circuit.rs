@@ -377,7 +377,7 @@ impl Config {
 
     /// Constructs an ECC chip for curve operations (conditions 3, 11).
     fn ecc_chip(&self) -> EccChip<OrchardFixedBases> {
-        EccChip::construct(self.ecc_config.clone())
+        EccChip::construct(self.ecc_config.clone(), halo2_gadgets::ecc::CircuitVersion::AnchoredBase)
     }
 
     /// Constructs a Sinsemilla chip (condition 3: CommitIvk).

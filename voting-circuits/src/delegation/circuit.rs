@@ -260,7 +260,7 @@ impl Config {
     }
 
     fn ecc_chip(&self) -> EccChip<OrchardFixedBases> {
-        EccChip::construct(self.ecc_config.clone())
+        EccChip::construct(self.ecc_config.clone(), halo2_gadgets::ecc::CircuitVersion::AnchoredBase)
     }
 
     // Operating over the Pallas base field, with a width of 3 (state size) and rate of 2
