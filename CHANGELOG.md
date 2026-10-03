@@ -4,6 +4,8 @@
 
 ### Added
 
+- The `imt-tree` crate now lives in this repository, at `imt-tree/`, with its
+  own changelog. Its published history continues from `imt-tree` `0.5.4`.
 - `voting-crypto-deps` now reexports the selected backend's
   `incrementalmerkletree`, `zip32`, and `zcash_note_encryption` crates as
   `voting_crypto_deps::{incrementalmerkletree, zip32, zcash_note_encryption}`,

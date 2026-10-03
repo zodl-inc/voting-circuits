@@ -53,6 +53,18 @@ silently omit or combine backends.
 
 Protocol domain-separation tags are registered in [`src/domain_tags.rs`](src/domain_tags.rs). Hash-owning modules document their own preimage layout, but new tags should be added to the registry first so the encoding rule and distinctness test stay centralized.
 
+## Workspace crates
+
+| Crate | Path | Role |
+|-------|------|------|
+| `voting-circuits` | `./` | Delegation, vote-proof, and share-reveal circuits. |
+| `voting-crypto-deps` | `voting-crypto-deps/` | Selectable Zakura and LRZ cryptography dependency facade. |
+| `imt-tree` | `imt-tree/` | Indexed Merkle Tree for nullifier non-membership proofs: Poseidon hashing, punctured-range tree building, and exclusion proofs for the delegation circuit. Versioned independently; see [`imt-tree/CHANGELOG.md`](imt-tree/CHANGELOG.md). |
+
+Each crate selects its cryptography backend the same way: the default
+features select Zakura, and `lrz` (`upstream` for `imt-tree`) selects the
+crates.io family.
+
 ## Package layout
 
 ```
