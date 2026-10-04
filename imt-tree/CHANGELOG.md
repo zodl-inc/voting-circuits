@@ -13,6 +13,12 @@ repository.
   [voting-circuits](https://github.com/valargroup/voting-circuits) repository,
   next to `voting-crypto-deps`. Consumers depend on the published crate as
   before.
+- **Breaking:** The `upstream` (LRZ) backend moves to the `orchard` `0.16`
+  generation of the librustzcash crates: `pasta_curves` `0.6` and
+  `halo2_gadgets` `0.6`. Under `upstream`, `Fp` values exchanged with these
+  crates are `pasta_curves` `0.6` types.
+- `rust-version` is now 1.88, the toolchain the `upstream` backend supports.
+  The default `zakura` backend still requires Rust 1.91.
 
 ## v0.5.4
 
