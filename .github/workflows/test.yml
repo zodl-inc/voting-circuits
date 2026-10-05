@@ -157,6 +157,21 @@ jobs:
       - name: Check delegation benchmark
         run: cargo bench --locked --no-default-features --features lrz --bench delegation -- --test
 
+  required-checks:
+    name: Required status checks have passed
+    needs:
+      - short-tests
+      - lrz-tests
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Determine whether all required-pass steps succeeded
+        run: |
+          echo "${NEEDS}" | jq -e '[ .[] | .result == "success" or .result == "skipped" ] | all'
+        env:
+          NEEDS: ${{ toJSON(needs) }}
+
   full-suite:
     name: Full suite
     if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.run == 'full-suite')
