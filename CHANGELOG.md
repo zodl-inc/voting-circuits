@@ -19,7 +19,7 @@
   librustzcash NU7 pre-release generation: `orchard` 0.16, `halo2_proofs` 0.4,
   `halo2_gadgets` 0.6, `halo2_poseidon` 0.2, `pasta_curves` 0.6, `sinsemilla`
   0.2, `reddsa` 0.6, `incrementalmerkletree` 0.9, `zip32` 0.3,
-  `zcash_note_encryption` 0.5.1, and `zcash_primitives` `=0.31.0-pre.0`.
+  `zcash_note_encryption` 0.5.1, and `zcash_primitives` `=0.31.0-pre.1`.
   The LRZ backend now requires Rust 1.88.
 - **Breaking:** With `lrz-rand`, `voting_crypto_deps::rand` is now the same
   `rand` 0.10 facade the Zakura backend exposes (`CryptoRng`, `Rng`, and
