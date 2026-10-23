@@ -15,6 +15,9 @@
 
 ### Changed
 
+- The `lrz` backend of `voting-crypto-deps` now requires the stable
+  `zcash_primitives` `0.31.0` in place of `0.31.0-pre.1`, matching the stable
+  librustzcash releases that set the NU7 mainnet activation height.
 - **Breaking:** Updated the LRZ cryptography package family to the
   librustzcash NU7 pre-release generation: `orchard` 0.16, `halo2_proofs` 0.4,
   `halo2_gadgets` 0.6, `halo2_poseidon` 0.2, `pasta_curves` 0.6, `sinsemilla`
